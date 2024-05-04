@@ -1,0 +1,225 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000000;
+  color: #F6FF00;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #1c1c1c;
+  padding: 20px 0;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c; /* Color de fondo negro */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff; /* Color de fondo blanco */
+  color: #000000; /* Color de texto negro */
+}
+
+#search-button {
+  padding: 8px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F6FF00; /* Color de fondo amarillo */
+  color: #000000; /* Color de texto negro */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #000000; /* Cambiar color de fondo a negro al pasar el cursor */
+  color: #F6FF00; /* Cambiar color de texto a amarillo al pasar el cursor */
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #F6FF00;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #F6FF00;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #ffffff;
+}
+
+main {
+  padding: 10px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  color: #F6FF00;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.catalog .item {
+  width: calc(25% - 20px);
+  margin-bottom: 20px;
+  background-color: #1c1c1c;
+  padding: 20px;
+  border: 2px solid #F6FF00;
+  box-sizing: border-box;
+}
+
+.catalog .item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.catalog .item h3 {
+  color: #F6FF00;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.catalog .item p {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+footer {
+  background-color: #1c1c1c;
+  color: #F6FF00;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.logo img{
+  width: 80px;
+}
+
+
+/* Estilos adicionales para los h2 */
+h2 {
+  background-size: cover;
+  background-position: center;
+  color: #ffffff; /* Cambiar color de texto si es necesario para que sea visible en la imagen de fondo */
+  padding: 20px; /* Agregar espacio alrededor del texto para mejorar la legibilidad */
+  text-align: center; /* Centrar el texto */
+}
+/* Estilo para la sección de camisetas */
+#camisetas {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(246, 255, 0, 0.5); /* Borde difuminado amarillo */
+  border: 5px solid #F6FF00; /* Borde sólido amarillo */
+  color: #ffffff;
+}
+
+
+/* Estilo para la sección de sudaderas */
+#sudaderas {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(246, 255, 0, 0.5); /* Borde difuminado amarillo */
+  border: 5px solid #F6FF00; /* Borde sólido amarillo */
+  color: #ffffff;
+}
+
+/* Estilo para la sección de mochilas */
+#mochilas {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(246, 255, 0, 0.5); /* Borde difuminado amarillo */
+  border: 5px solid #F6FF00; /* Borde sólido amarillo */
+  color: #ffffff;
+}
+
+/* Estilo para la sección de gorras */
+#gorras {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(246, 255, 0, 0.5); /* Borde difuminado amarillo */
+  border: 5px solid #F6FF00; /* Borde sólido amarillo */
+  color: #ffffff;
+}
+.icon {
+  font-size: 30px; /* Tamaño de los iconos */
+  margin-right: 0px;
+}
+
+
+.catalog {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.camisetas,
+.sudaderas,
+.mochilas,
+.gorras {
+  width: calc(20% - 20px); /* Ajusta el ancho de cada prenda */
+  margin-bottom: 20px; /* Espacio entre las prendas */
+}
+.camisetas img,
+.sudaderas img,
+.mochilas img,
+.gorras img {
+  width: 100%; /* Establece el ancho al 100% del contenedor */
+  height: auto; /* Altura automática para mantener la proporción */
+  max-width: 100%; /* Ancho máximo del contenedor */
+  max-height: 100%; /* Altura máxima del contenedor */
+}
+.camisetas h3
+.sudaderas h3,
+.mochilas h3,
+.gorras h3,
+.camisetas p,
+.sudaderas p,
+.mochilas p,
+.gorras p {
+  text-align: center;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Ropa</title>
+  <link rel="stylesheet" href="/blackopulence-santiagogalvez/css/catalogo.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="/imagenes/logos/oro.png" alt="">
+      </div>
+      <ul class="menu">
+        <li><a href="#camisetas">CAMISETAS</a></li>
+        <li><a href="#sudaderas">SUDADERAS</a></li>
+        <li><a href="#mochilasygorras">MOCHILAS Y GORRAS</a></li>
+      </ul>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Buscar..." style="width: 300px;">
+        <button type="button" id="search-button">Buscar</button>
+      </div>
+      <!-- Icono de perfil -->
+      <i class="fas fa-user icon"></i>
+      <!-- Icono de corazón para "Me gusta" -->
+      <i class="fas fa-heart icon"></i>
+      <!-- Icono de carrito de compra -->
+      <i class="fas fa-shopping-cart icon"></i>
+    </nav>
+  </header>
+
+  <main>
+    <section id="camisetas" class="section">
+      <h2 class="camisetas-heading">CAMISETAS</h2>
+    </section>
+
+    <div class="catalog" id="catalogo-camisetas">
+      <!-- Aquí se insertarán las camisetas dinámicamente con JS -->
+    </div>
+
+    <section id="sudaderas" class="section">
+      <h2 class="sudaderas-heading">SUDADERAS</h2>
+    </section>
+
+
+    <div class="catalog" id="catalogo-sudaderas">
+      <!-- Aquí se insertarán las camisetas dinámicamente con JS -->
+    </div>
+
+    <section id="mochilas" class="section">
+      <h2 class="mochilas-heading">MOCHILAS </h2>
+    </section>
+
+    <div class="catalog" id="catalogo-mochilas">
+      <!-- Aquí se insertarán las camisetas dinámicamente con JS -->
+    </div>
+
+    <section id="gorras" class="section">
+      <h2 class="gorras-heading">GORRAS</h2>
+    </section>
+
+    <div class="catalog" id="catalogo-gorras">
+      <!-- Aquí se insertarán las camisetas dinámicamente con JS -->
+    </div>
+
+
+  </main>
+
+
+  <footer>
+    <p>&copy; 2024 Catálogo de Ropa</p>
+  </footer>
+  
+
+
+  <script src="/JS/catalogo.js"></script>
+</body>
+
+</html>

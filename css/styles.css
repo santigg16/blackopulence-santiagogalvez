@@ -1,109 +1,192 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000000;
+  color: #ff0000;
+}
+/*ENCABEZADO*/
+
+.navbar {
+  background-color: black !important;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: gold !important;
 }
 
-/* Encabezado */
-header {
-    background: linear-gradient(to bottom, black 56%, gold 100%);
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: auto;
+.navbar-toggler-icon {
+  background-color: gold !important;
 }
 
-header h1 {
-    margin: 0;
-    display: flex;
-    align-items: center;
+.navbar-toggler {
+  border-color: gold !important;
 }
 
-header h1 .black {
-    color: #1c1c1c;
+
+/*EL IMPORTANT SIRVE PARA AÑADIR ESTILOS SOBRE OTROS EN ESTE CASO LOS DE LA PLANTILLA DE BOOSTRAP*/
+
+.custom-bg {
+  background-image: url('/imagenes/logos/fondoPORTADA.png'); /* Ruta de la imagen de fondo */
+  background-size: cover; /* Esto ajusta la imagen para que cubra todo el elemento */
+  /* Otras propiedades opcionales para el diseño */
+  background-position: center center; /* Esto centra la imagen */
+  /* También puedes ajustar otras propiedades como la repetición, el tamaño, etc. según tus necesidades */
 }
 
-header h1 .golden {
-    color: gold;
+.custom-btn {
+  background-color: gold; /* Color de fondo dorado */
+  color: black; /* Color del texto negro */
+  border: 2px solid transparent; /* Borde de 2px sólido transparente */
+  border-radius: 25px; /* Radio de borde de 25px */
+  padding: 10px 20px; /* Espaciado interno de 10px arriba/abajo y 20px izquierda/derecha */
+  font-size: 18px; /* Tamaño de fuente de 18px */
+  text-decoration: none; /* Quita la subrayado predeterminado en los enlaces */
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+/* Estilo para el hover de los botones */
+.custom-btn:hover {
+  background-color: transparent; /* Fondo transparente en hover */
+  border-color: gold; /* Cambia el color del borde a dorado en hover */
+  color: gold; /* Cambia el color del texto a dorado en hover */
+  transition: all 0.3s ease; /* Transición suave de 0.3 segundos */
+}
+/* Otros estilos... */
+
+.card-title,
+.card-text {
+    color: black; /* Cambia el color del texto a negro */
 }
 
-nav ul li {
-    margin-left: 20px;
+.card:hover .card-title,
+.card:hover .card-text {
+    color: white; /* Cambia el color del texto a blanco en hover */
 }
 
-nav ul li:first-child {
-    margin-left: 0;
+.card:hover {
+    background-color: black; /* Cambia el fondo a negro en hover */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
+/* Otros estilos... */
+
+/* TENDENCIAS DE TEMPORADA*/
+
+
+.trending-section {
+  padding: 50px 0;
+  background-color: black;
+  color: gold;
 }
 
-.menu-icon {
-    display: none;
+.section-title {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Secciones */
-section {
-    padding: 50px 0;
-    text-align: center;
+.trend-item {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: rgba(255, 215, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
-section h2 {
-    margin-bottom: 20px;
+.trend-item:hover {
+  background-color: rgba(255, 215, 0, 0.4);
 }
 
-/* Pie de página */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
+.trend-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
-/* Media queries para diseño responsivo */
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
+.trend-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
-    .menu-icon {
-        display: inline-block;
-        cursor: pointer;
-        font-size: 24px;
-    }
+.trend-item a {
+  color: gold;
+  background-color: transparent;
+  border: 2px solid gold;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    nav {
-        display: none;
-    }
+.trend-item a:hover {
+  background-color: black;
+  color: gold;
+  border:2px solid gold
+}
 
-    nav.active {
-        display: block;
-    }
 
-    nav ul {
-        display: block;
-        text-align: center;
-    }
 
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
+/* INFORMACION DE MARCA*/
+/* Estilo para la sección de la marca de Roja */
+/* Estilo para la sección de la marca de Roja */
+.brand-section {
+  background-color: rgb(255, 255, 255);
+  color: gold;
+  padding: 50px 0;
+}
+
+.section-titleinfo {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.brand-box {
+  background-color: #333; /* Fondo gris oscuro */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio entre las cajas */
+}
+
+.brand-info {
+  padding-right: 20px; /* Espacio a la derecha para separar el texto de la imagen */
+}
+
+.brand-info h2 {
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.brand-info p {
+  margin-bottom: 20px;
+}
+
+.brand-info a {
+  color: gold;
+  background-color: transparent;
+  border: 2px solid gold;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.brand-info a:hover {
+  background-color: gold;
+  color: black;
+}
+
+/* Estilo para la imagen */
+.brand-image {
+  text-align: center; /* Centrar la imagen en la columna */
+}
+
+.brand-image img {
+  max-width: 100%; /* Asegurar que la imagen no sobrepase su contenedor */
 }
