@@ -8,65 +8,63 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="/blackopulence-santiagogalvez/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <!-- Icono -->
     <link rel="icon" type="image/png" href="/imagenes/logos/oro.png">
 </head>
 
 <body>
-    
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-bg">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <span style="color:#4a4a4a;">BLACK</span>&nbsp;
-            <span style="color:gold;">OPULENCE</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span style="color:#4a4a4a;">BLACK</span>&nbsp;
+                <span style="color:gold;">OPULENCE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">INICIO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CATÁLOGO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">NOSOTROS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CONTACTO</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CATÁLOGO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NOSOTROS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACTO</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-
-
+    <header class="jumbotron jumbotron-fluid bg-dark text-white custom-header-bg">
+        <div class="dark-overlay"></div> <!-- Capa de superposición para el filtro oscuro -->
+        <div class="container text-center custom-header-content"> <!-- Contenedor del contenido del encabezado -->
+            <h1 class="display-4">¡NUEVA COLECCIÓN!</h1>
+            <p class="lead">¡Descubre nuestra colección de ropa elegante y llamativa!</p>
+            <p class="lead">¡No te pierdas nuestras últimas novedades!</p>
+            <p>
+                <a href="#" class="btn btn-lg custom-btn">Ver colección</a>
+                <a href="#" class="btn btn-lg custom-btn">Más Información</a>
+            </p>
+        </div>
+    </header>
     
-<header class="jumbotron jumbotron-fluid bg-dark text-white header-bg">
-    <div class="container text-center">
-        <h1 class="display-4">¡NUEVA COLECCIÓN!</h1>
-        <p class="lead">¡Descubre nuestra colección de ropa elegante y llamativa!</p>
-        <p class="lead">¡No te pierdas nuestras últimas novedades!</p>
-        <p>
-            <a href="#" class="btn btn-lg custom-btn">Ver colección</a>
-            <a href="#" class="btn btn-lg custom-btn">Más Información</a>
-        </p>
-        
-    </div>
-</header>
 
 
     <section class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="/imagenes/CAMISETAS/CAMISETAS CATALOGO.png" class="card-img-top" alt="...">
+                <a href="camisetas.html" class="card-link">
+                <div class="card mb-4" id="camisetas">
+                    <img src="/imagenes/CAMISETAS/CATALOGO-CAMISETAS/camisetacategoria.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">CAMISETAS</h5>
                         <p class="card-text">Explora nuestra exclusiva colección de camisetas, donde el estilo y la comodidad se fusionan en cada diseño.</p>
@@ -74,19 +72,21 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4">
+                <a href="sudaderasychaquetas.html" class="card-link">
+                <div class="card mb-4" id="sudaderasychaquetas">
                     <img src="/imagenes/SUDADERAS/SUDADERAPORTADA.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">SUDADERAS Y CHAQUETAS</h5>
+                        <h5 class="card-title">SUDADERAS</h5>
                         <p class="card-text">Explora nuestra exclusiva colección de sudaderas y chaquetas, donde el estilo y la comodidad se fusionan en cada diseño.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-4">
+                <a href="mochilasygorras.html" class="card-link">
+                <div class="card mb-4" id="mochilasygorras">
                     <img src="/imagenes/MOCHILAS/MOCHILASYGORRASPORTADA.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">MOCHILAS Y GORRAS</h5>
+                        <h5 class="card-title">GORRAS</h5>
                         <p class="card-text">Encuentra tu complemento perfecto con nuestras gorras, donde la moda y la funcionalidad se unen para elevar tu estilo. </p>
                     </div>
                 </div>
@@ -151,28 +151,27 @@
 
     <section class="brand-section">
         <div class="container">
-          <h2 class="section-titleinfo">MARCA DE ROPA</h2>
-          <div class="row">
-            <!-- Primera columna para el texto -->
-            <div class="col-md-6">
-              <div class="brand-info">
-                <h2>Diseños Exclusivos</h2>
-                <p>Descubre nuestros diseños exclusivos que reflejan la elegancia y el estilo de la marca de Roja. Cada pieza está cuidadosamente diseñada para destacar en cualquier ocasión.</p>
-                <h2>Calidad Superior</h2>
-                <p>Nuestra marca se compromete con la más alta calidad en cada producto que ofrecemos. Utilizamos materiales premium y nos enfocamos en la atención al detalle para garantizar la satisfacción de nuestros clientes.</p>
-                <a href="#">Más información</a>
-              </div>
+            <h2 class="section-titleinfo">MARCA DE ROPA</h2>
+            <div class="row">
+                <!-- Primera columna para el texto -->
+                <div class="col-md-6">
+                    <div class="brand-info">
+                        <h2>Diseños Exclusivos</h2>
+                        <p>Descubre nuestros diseños exclusivos que reflejan la elegancia y el estilo de la marca de Roja. Cada pieza está cuidadosamente diseñada para destacar en cualquier ocasión.</p>
+                        <h2>Calidad Superior</h2>
+                        <p>Nuestra marca se compromete con la más alta calidad en cada producto que ofrecemos. Utilizamos materiales premium y nos enfocamos en la atención al detalle para garantizar la satisfacción de nuestros clientes.</p>
+                        <a href="#" class="btn btn-lg custom-btn">Más información</a>
+                    </div>
+                </div>
+                <!-- Segunda columna para la imagen -->
+                <div class="col-md-6">
+                    <img src="/tu_ruta_de_imagen.jpg" class="img-fluid brand-image" alt="Imagen de la marca de Roja">
+                </div>
             </div>
-            <!-- Segunda columna para la imagen -->
-            <div class="col-md-6">
-              <img src="/tu_ruta_de_imagen.jpg" class="img-fluid" alt="Imagen de la marca de Roja">
-            </div>
-          </div>
         </div>
-      </section>
-      
-      
-    
+    </section>
+
+
 
     <footer class="bg-dark text-white">
         <div class="container py-5">
@@ -205,9 +204,12 @@
     </footer>
 
     <!-- jQuery y Bootstrap JS -->
+    <script src="categorias.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 
 </html>

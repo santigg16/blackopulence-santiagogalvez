@@ -1,192 +1,186 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #000000;
-  color: #ff0000;
+  color: #ffffff;
+  /* Texto en blanco */
 }
-/*ENCABEZADO*/
 
+
+/* Encabezado */
 .navbar {
-  background-color: black !important;
+  background-color: #000000;
+  /* Negro */
 }
+.bg-dark {
+  background-color: rgb(0, 0, 0) !important;
+}/* Estilos para la imagen de fondo del encabezado */
+/* Estilo para la imagen de fondo del encabezado */
+.custom-header-bg {
+  background-image: url('/imagenes/fondoportada.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+/* Estilo para el filtro oscuro */
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Color negro con 50% de opacidad */
+}
+
+/* Estilos para el contenido del encabezado */
+.custom-header-content {
+  position: relative;
+  z-index: 1;
+  color: #ffffff; /* Color del texto */
+}
+
 
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: gold !important;
+  color: #ffd700;
+  /* Oro */
 }
 
 .navbar-toggler-icon {
-  background-color: gold !important;
+  background-color: #ffd700;
+  /* Oro */
 }
 
 .navbar-toggler {
-  border-color: gold !important;
+  border-color: #ffd700;
+  /* Oro */
 }
 
-
-/*EL IMPORTANT SIRVE PARA AÑADIR ESTILOS SOBRE OTROS EN ESTE CASO LOS DE LA PLANTILLA DE BOOSTRAP*/
-
-.custom-bg {
-  background-image: url('/imagenes/logos/fondoPORTADA.png'); /* Ruta de la imagen de fondo */
-  background-size: cover; /* Esto ajusta la imagen para que cubra todo el elemento */
-  /* Otras propiedades opcionales para el diseño */
-  background-position: center center; /* Esto centra la imagen */
-  /* También puedes ajustar otras propiedades como la repetición, el tamaño, etc. según tus necesidades */
+.btn-primary {
+  color: #fff;
+  background-color: #ffd700;
+  border-color: #ffd700;
+  
 }
 
+/* Botones personalizados */
 .custom-btn {
-  background-color: gold; /* Color de fondo dorado */
-  color: black; /* Color del texto negro */
-  border: 2px solid transparent; /* Borde de 2px sólido transparente */
-  border-radius: 25px; /* Radio de borde de 25px */
-  padding: 10px 20px; /* Espaciado interno de 10px arriba/abajo y 20px izquierda/derecha */
-  font-size: 18px; /* Tamaño de fuente de 18px */
-  text-decoration: none; /* Quita la subrayado predeterminado en los enlaces */
+  background-color: #ffd700;
+  /* Oro */
+  color: #000000;
+  /* Texto negro */
+  border: 2px solid transparent;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-/* Estilo para el hover de los botones */
 .custom-btn:hover {
-  background-color: transparent; /* Fondo transparente en hover */
-  border-color: gold; /* Cambia el color del borde a dorado en hover */
-  color: gold; /* Cambia el color del texto a dorado en hover */
-  transition: all 0.3s ease; /* Transición suave de 0.3 segundos */
+  background-color: transparent;
+  border-color: #ffd700;
+  /* Oro */
+  color: #ffd700;
+  /* Oro */
 }
-/* Otros estilos... */
+
+/* Cartas (cards) */
+.card {
+  background-color: #000000;
+  /* Negro */
+  color: #ffd700;
+  /* Oro */
+  border: 2px solid #ffd700;
+  /* Oro */
+  transition: background-color 0.3s ease;
+  /* Transición suave */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 .card-title,
 .card-text {
-    color: black; /* Cambia el color del texto a negro */
-}
-
-.card:hover .card-title,
-.card:hover .card-text {
-    color: white; /* Cambia el color del texto a blanco en hover */
+  color: #ffffff;
+  /* Oro */
 }
 
 .card:hover {
-    background-color: black; /* Cambia el fondo a negro en hover */
+  background-color: #ffd700;
+  /* Oro */
+  color: #000000;
+  /* Texto negro */
+  cursor: pointer;
 }
 
-/* Otros estilos... */
-
-/* TENDENCIAS DE TEMPORADA*/
-
-
+/* Sección de Tendencias */
 .trending-section {
-  padding: 50px 0;
-  background-color: black;
-  color: gold;
+  background-color: #000000;
+  /* Negro */
+  color: #ffffff;
+  /* Oro */
 }
 
 .section-title {
-  color: #ffffff;
+  color: #ffd700;
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  /* Oro */
 }
 
 .trend-item {
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: rgba(255, 215, 0, 0.2);
-  padding: 20px;
+  background-color: transparent;
+  border: 2px solid #ffd700;
+  /* Oro */
   border-radius: 10px;
   transition: background-color 0.3s ease;
+  /* Transición suave */
 }
 
 .trend-item:hover {
-  background-color: rgba(255, 215, 0, 0.4);
+  background-color: #ffd700;
+  /* Oro */
+  color: #000000;
+  /* Texto negro */
+  cursor: pointer;
 }
-
-.trend-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.trend-item p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.trend-item a {
-  color: gold;
-  background-color: transparent;
-  border: 2px solid gold;
-  border-radius: 25px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.trend-item a:hover {
-  background-color: black;
-  color: gold;
-  border:2px solid gold
-}
-
-
-
-/* INFORMACION DE MARCA*/
-/* Estilo para la sección de la marca de Roja */
-/* Estilo para la sección de la marca de Roja */
+/* Sección de Información de Marca */
 .brand-section {
-  background-color: rgb(255, 255, 255);
-  color: gold;
-  padding: 50px 0;
+  background-color: #000000; /* Negro */
+  color: #ffffff; /* Blanco */
+  padding: 80px 0;
 }
 
 .section-titleinfo {
-  color: #000000;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.brand-box {
-  background-color: #333; /* Fondo gris oscuro */
-  padding: 20px; /* Espaciado interno */
-  border-radius: 10px; /* Bordes redondeados */
-  margin-bottom: 20px; /* Espacio entre las cajas */
-}
-
-.brand-info {
-  padding-right: 20px; /* Espacio a la derecha para separar el texto de la imagen */
+  color: #ffd700; /* Oro */
+  margin-bottom: 50px;
 }
 
 .brand-info h2 {
-  margin-bottom: 10px;
-  color: #000000;
+  color: #ffffff; /* Blanco */
 }
 
 .brand-info p {
+  color: #ffffff; /* Blanco */
   margin-bottom: 20px;
 }
 
 .brand-info a {
-  color: gold;
-  background-color: transparent;
-  border: 2px solid gold;
+  color: #000000; /* Texto negro */
+  background-color: #ffd700; /* Oro */
+  border: 2px solid #ffd700; /* Oro */
   border-radius: 25px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 15px 30px;
+  font-size: 18px;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .brand-info a:hover {
-  background-color: gold;
-  color: black;
-}
-
-/* Estilo para la imagen */
-.brand-image {
-  text-align: center; /* Centrar la imagen en la columna */
+  background-color: transparent;
+  color: #ffd700; /* Oro */
 }
 
 .brand-image img {
-  max-width: 100%; /* Asegurar que la imagen no sobrepase su contenedor */
+  max-width: 100%;
+  border-radius: 10px;
 }

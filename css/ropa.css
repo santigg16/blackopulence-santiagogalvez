@@ -1,0 +1,40 @@
+/* Estilos para las páginas de camisetas, sudaderas y chaquetas, y gorras */
+
+/* Encabezado */
+.jumbotron.custom-header-bg {
+    background-color: #ffd700;
+}
+
+/* Títulos y texto */
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+}
+
+p, .lead {
+    color: #333;
+}
+
+/* Botones */
+.btn.custom-btn {
+    background-color: #000;
+    color: #ffd700;
+    border-color: #000;
+}
+
+.btn.custom-btn:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Sección de productos */
+.card.mb-4 {
+    border: 2px solid #ffd700;
+}
+
+.card-title {
+    color: #000;
+}
+
+.card-text {
+    color: #333;
+}
