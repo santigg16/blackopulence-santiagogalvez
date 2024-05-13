@@ -2,18 +2,17 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #000000;
   color: #ffffff;
-  /* Texto en blanco */
 }
-
 
 /* Encabezado */
 .navbar {
   background-color: #000000;
-  /* Negro */
 }
+
 .bg-dark {
   background-color: rgb(0, 0, 0) !important;
-}/* Estilos para la imagen de fondo del encabezado */
+}
+
 /* Estilo para la imagen de fondo del encabezado */
 .custom-header-bg {
   background-image: url('/imagenes/fondoportada.png');
@@ -24,51 +23,49 @@ body {
 
 /* Estilo para el filtro oscuro */
 .dark-overlay {
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.3); /* Color negro con 50% de opacidad */
+  background-color: rgba(0, 0, 0, 0.3); 
 }
 
 /* Estilos para el contenido del encabezado */
 .custom-header-content {
   position: relative;
   z-index: 1;
-  color: #ffffff; /* Color del texto */
+  color: #ffffff;
 }
 
+/* Estilos para las imágenes dentro de las cajas de tendencias */
+.trend-item img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 10px; }
 
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: #ffd700;
-  /* Oro */
+  color: #ffd700; 
 }
 
 .navbar-toggler-icon {
-  background-color: #ffd700;
-  /* Oro */
+  background-color: #ffd700; 
 }
 
 .navbar-toggler {
-  border-color: #ffd700;
-  /* Oro */
+  border-color: #ffd700; 
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #ffd700;
-  border-color: #ffd700;
-  
+  background-color: #ffd700; 
+  border-color: #ffd700; 
 }
 
 /* Botones personalizados */
 .custom-btn {
-  background-color: #ffd700;
-  /* Oro */
-  color: #000000;
-  /* Texto negro */
+  background-color: #ffd700; 
+  color: #000000; 
   border: 2px solid transparent;
   border-radius: 25px;
   padding: 10px 20px;
@@ -79,95 +76,80 @@ body {
 
 .custom-btn:hover {
   background-color: transparent;
-  border-color: #ffd700;
-  /* Oro */
-  color: #ffd700;
-  /* Oro */
+  border-color: #ffd700; 
+  color: #ffd700; 
 }
 
 /* Cartas (cards) */
 .card {
-  background-color: #000000;
-  /* Negro */
-  color: #ffd700;
-  /* Oro */
-  border: 2px solid #ffd700;
-  /* Oro */
-  transition: background-color 0.3s ease;
-  /* Transición suave */
+  background-color: #000000; 
+  color: #ffd700; 
+  border: 2px solid #ffd700; 
+  transition: background-color 0.3s ease; 
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-title,
 .card-text {
-  color: #ffffff;
-  /* Oro */
+  color: #ffffff; 
 }
 
 .card:hover {
-  background-color: #ffd700;
-  /* Oro */
-  color: #000000;
-  /* Texto negro */
+  background-color: #ffd700; 
+  color: #000000; 
   cursor: pointer;
 }
 
 /* Sección de Tendencias */
 .trending-section {
-  background-color: #000000;
-  /* Negro */
-  color: #ffffff;
-  /* Oro */
+  background-color: #000000; 
+  color: #ffffff; 
 }
 
 .section-title {
-  color: #ffd700;
+  color: #ffd700; 
   text-align: center;
-  /* Oro */
 }
 
 .trend-item {
   background-color: transparent;
-  border: 2px solid #ffd700;
-  /* Oro */
+  border: 2px solid #ffd700; 
   border-radius: 10px;
-  transition: background-color 0.3s ease;
-  /* Transición suave */
+  transition: background-color 0.3s ease; 
 }
 
 .trend-item:hover {
-  background-color: #ffd700;
-  /* Oro */
+  background-color: #ffd700; 
   color: #000000;
-  /* Texto negro */
   cursor: pointer;
 }
-/* Sección de Información de Marca */
+
+
 .brand-section {
-  background-color: #000000; /* Negro */
-  color: #ffffff; /* Blanco */
+  background-color: #000000; 
+  color: #ffffff; 
   padding: 80px 0;
 }
 
 .section-titleinfo {
-  color: #ffd700; /* Oro */
+  color: #ffd700; 
   margin-bottom: 50px;
 }
 
 .brand-info h2 {
-  color: #ffffff; /* Blanco */
+  color: #ffffff; 
 }
 
 .brand-info p {
-  color: #ffffff; /* Blanco */
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .brand-info a {
-  color: #000000; /* Texto negro */
-  background-color: #ffd700; /* Oro */
-  border: 2px solid #ffd700; /* Oro */
+  color: #000000; 
+  background-color: #ffd700; 
+  border: 2px solid #ffd700; 
   border-radius: 25px;
   padding: 15px 30px;
   font-size: 18px;
@@ -177,7 +159,7 @@ body {
 
 .brand-info a:hover {
   background-color: transparent;
-  color: #ffd700; /* Oro */
+  color: #ffd700; 
 }
 
 .brand-image img {

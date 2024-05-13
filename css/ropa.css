@@ -1,40 +1,105 @@
-/* Estilos para las páginas de camisetas, sudaderas y chaquetas, y gorras */
+/* Estilos para la página de camisetas */
 
-/* Encabezado */
-.jumbotron.custom-header-bg {
-    background-color: #ffd700;
+/* Estilos para la imagen de fondo del encabezado */
+.custom-header-bg {
+    background-image: url('../imagenes/fondoportada.png'); 
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+  }
+  
+  /* Estilo para la capa de superposición oscura */
+  .dark-overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3); }
+  
+  /* Estilos para el contenido del encabezado */
+  .custom-header-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff; 
+  }
+  
+  /* Cartas (cards) */
+  .card {
+    background-color: #000000; 
+    color: #ffd700; 
+    border: 2px solid #ffd700; 
+    border-radius: 10px;
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title,
+  .card-text {
+    color: #ffffff; }
+  
+  .card:hover {
+    background-color: #ffd700; 
+    color: #000000; 
+    cursor: pointer;
+  }
+  
+  /* Pie de página */
+  footer {
+    padding: 50px 0;
+    background-color: #000000; 
+    color: #ffffff; 
+  }
+  
+  footer h3 {
+    color: #ffd700; 
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  footer a {
+    color: #ffffff; 
+  }
+  
+  footer a:hover {
+    color: #ffd700; 
+  }
+  
+  .bg-dark {
+    background-color: #000000 !important;
 }
+/* Estilos para los botones "Ver colección" y "Más información" */
+.custom-btn {
+    background-color: #ffd700; 
+    color: #000000; 
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: transparent;
+    border-color: #ffd700; 
+    color: #ffd700; 
+  }
+  
 
-/* Títulos y texto */
-h1, h2, h3, h4, h5, h6 {
-    color: #000;
-}
-
-p, .lead {
-    color: #333;
-}
-
-/* Botones */
-.btn.custom-btn {
-    background-color: #000;
-    color: #ffd700;
-    border-color: #000;
-}
-
-.btn.custom-btn:hover {
-    background-color: #333;
-    border-color: #333;
-}
-
-/* Sección de productos */
-.card.mb-4 {
-    border: 2px solid #ffd700;
-}
-
-.card-title {
-    color: #000;
-}
-
-.card-text {
-    color: #333;
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #000000d9;
 }

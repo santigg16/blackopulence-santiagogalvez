@@ -2,15 +2,16 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camisetas - Black Opulence</title>
+    <title>Detalles del Producto - Black Opulence</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="../css/ropa.css"> 
+    <link rel="stylesheet" href="/css/styles.css">
     <!-- Icono -->
-    <link rel="icon" type="image/png" href="../imagenes/logos/oro.png"> 
+    <link rel="icon" type="image/png" href="/imagenes/logos/oro.png">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="/html/index.html">INICIO</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -36,9 +37,9 @@
                             CATEGORIAS
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="camisetas.html">Camisetas</a>
-                            <a class="dropdown-item" href="gorras.html">Gorras</a>
-                            <a class="dropdown-item" href="sudaderas.html">Sudaderas</a>
+                            <a class="dropdown-item" href="/html/camisetas.html">Camisetas</a>
+                            <a class="dropdown-item" href="/html/gorras.html">Gorras</a>
+                            <a class="dropdown-item" href="/html/sudaderas.html">Sudaderas</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -52,29 +53,14 @@
         </div>
     </nav>
     
-    <header class="jumbotron jumbotron-fluid bg-dark text-white custom-header-bg">
-        <div class="dark-overlay"></div>
-        <div class="container text-center custom-header-content">
-            <h1 class="display-4">CAMISETAS</h1>
-            <p class="lead">¡Descubre nuestra colección de camisetas elegantes y llamativas!</p>
-            <p class="lead">¡No te pierdas nuestras últimas novedades!</p>
-            <p>
-                <a href="#" class="btn btn-lg custom-btn">Ver camisetas</a>
-            </p>
-        </div>
-    </header>
-
-    <div id="productos"></div>
 
 
-    <section class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="text-center mb-4">Calidad de las Prendas</h2>
-                <p>En Black Opulence nos enorgullece ofrecer camisetas de alta calidad. Nuestros productos están hechos con materiales premium que garantizan durabilidad y comodidad. Cada camiseta es diseñada con atención al detalle, utilizando técnicas de corte avanzadas para un ajuste perfecto. Además, nuestros diseños son únicos y exclusivos, lo que nos permite destacar en el mercado. Confía en Black Opulence para obtener camisetas que no solo lucirán estupendas, sino que también sentirán maravilloso.</p>
-            </div>
-        </div>
-    </section>
+    <div id="detallesProducto"></div>
+
+
+
+ 
+
 
     <footer class="bg-dark text-white">
         <div class="container py-5">
@@ -82,7 +68,7 @@
                 <div class="col-md-4">
                     <h3>Enlaces</h3>
                     <ul>
-                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="#">Inicio</a></li>
                         <li><a href="#">Catálogo</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>
@@ -107,11 +93,13 @@
     </footer>
 
     <!-- jQuery y Bootstrap JS -->
-    <script src="main.js"></script>
+    <script src="producto.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="categorias.js"></script>
 </body>
 
 </html>

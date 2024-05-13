@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Black Opulence</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h2>Agregar Nuevo Producto</h2>
+    <form action="/php/procesar.php" method="POST">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" required><br>
+        <label for="imagen">URL de la Imagen:</label><br>
+        <input type="text" id="imagen" name="imagen" required><br>
+        <label for="tallas">Tallas:</label><br>
+        <input type="text" id="tallas" name="tallas" required><br>
+        <label for="colores">Colores:</label><br>
+        <input type="text" id="colores" name="colores" required><br>
+        <label for="precio">Precio:</label><br>
+        <input type="text" id="precio" name="precio" required><br><br>
+        <label for="categoria">Categoría:</label><br>
+        <select id="categoria" name="categoria" required>
+            <option value="1">Camisetas</option>
+            <option value="2">Gorras</option>
+            <option value="3">Sudaderas</option>
+        </select><br><br>
+        <input type="submit" value="Agregar Producto">
+    </form>
+</body>
+</html>
