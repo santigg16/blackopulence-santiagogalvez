@@ -1,5 +1,5 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Kanit';
   background-color: #000000;
   color: #ffffff;
 }
@@ -165,4 +165,30 @@ body {
 .brand-image img {
   max-width: 100%;
   border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+footer a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer .btn-outline-light {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+footer .btn-outline-light:hover {
+  background-color: #ffd700;
+  color: #000000;
 }
