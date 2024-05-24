@@ -41,7 +41,8 @@ body {
 .trend-item img {
   width: 100%; 
   height: auto; 
-  border-radius: 10px; }
+  border-radius: 10px; 
+}
 
 .navbar-brand,
 .navbar-nav .nav-link {
@@ -85,7 +86,7 @@ body {
   background-color: #000000; 
   color: #ffd700; 
   border: 2px solid #ffd700; 
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -101,6 +102,11 @@ body {
   cursor: pointer;
 }
 
+.card:hover .card-title,
+.card:hover .card-text {
+  color: #000000; 
+}
+
 /* Sección de Tendencias */
 .trending-section {
   background-color: #000000; 
@@ -110,13 +116,28 @@ body {
 .section-title {
   color: #ffd700; 
   text-align: center;
+  padding: 20px 0; /* Más padding para el título */
+
 }
 
 .trend-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
   background-color: transparent;
   border: 2px solid #ffd700; 
   border-radius: 10px;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  text-align: center;
+}
+
+.trend-item h3,
+.trend-item p,
+.trend-item a.btn-primary {
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .trend-item:hover {
@@ -125,7 +146,48 @@ body {
   cursor: pointer;
 }
 
+.trend-item:hover h3,
+.trend-item:hover p,
+.trend-item:hover a.btn-primary {
+  color: #000000;
+}
 
+/* Estilos para los botones de las tendencias */
+.trend-button {
+  margin: 15px 0;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
+
+.btn-primary:hover {
+  color: #ffd700; /* Color del texto del botón al pasar el mouse */
+  background-color: #000000; /* Color de fondo del botón al pasar el mouse */
+  border-color: #ffd700; /* Color del borde del botón al pasar el mouse */
+}
+
+/* Botones personalizados */
+.custom-btn {
+  background-color: #ffd700;
+  color: #000000;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: transparent;
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+/* Sección de información de la marca */
 .brand-section {
   background-color: #000000; 
   color: #ffffff; 
@@ -191,4 +253,25 @@ footer .btn-outline-light {
 footer .btn-outline-light:hover {
   background-color: #ffd700;
   color: #000000;
+}
+
+/* Ajustes adicionales para los elementos de tendencia */
+.trend-item h3 {
+  color: #ffffff;
+}
+
+.trend-item p {
+  color: #ffffff;
+}
+
+.trend-item a.btn-primary {
+  color: #000000;
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
+
+.trend-item a.btn-primary:hover {
+  color: #ffd700;
+  background-color: #000000;
+  border-color: #ffd700;
 }
