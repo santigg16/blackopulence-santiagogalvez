@@ -1,70 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - Black Opulence</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-    <h2>Agregar Nuevo Producto</h2>
-    <form action="/php/agregar_producto.php" method="POST">
-        <label for="titulo">Título:</label><br>
-        <input type="text" id="titulo" name="titulo" required><br>
-        <label for="imagen">URL de la Imagen:</label><br>
-        <input type="text" id="imagen" name="imagen" required><br>
-        <label for="tallas">Tallas:</label><br>
-        <input type="text" id="tallas" name="tallas" required><br>
-        <label for="colores">Colores:</label><br>
-        <input type="text" id="colores" name="colores" required><br>
-        <label for="precio">Precio:</label><br>
-        <input type="text" id="precio" name="precio" required><br><br>
-        <label for="categoria">Categoría:</label><br>
-        <select id="categoria" name="categoria" required>
-            <option value="1">Camisetas</option>
-            <option value="2">Gorras</option>
-            <option value="3">Sudaderas</option>
-        </select><br><br>
-        <input type="submit" value="Agregar Producto">
-    </form>
+<div class="container" style="max-width: 1440px;">
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav">
+                <h2>Añadir nuevos artículos</h2>
+                <form action="/php/agregar_producto.php" method="POST">
+                    <div class="form-group">
+                        <label for="titulo">Titulo</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">URL Imagen</label>
+                        <input type="text" class="form-control" id="imagen" placeholder="Imagen" name="imagen" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tallas">Talla</label>
+                        <select class="form-control" id="tallas" name="tallas" required>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>EG</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="colores">Color</label>
+                        <input type="text" class="form-control" id="colores" name="colores" placeholder="Color" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categorías</label>
+                        <select class="form-control" id="categoria" name="categoria" required>
+                            <option value="1">Camiseta</option>
+                            <option value="2">Gorras</option>
+                            <option value="3">Zapatillas</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-dark">Agregar Producto</button>
+                </form>
+            </div>
+            <div class="col-sm-9">
+                <h2>Gestionar tus artículos</h2>
+                <div id="productos-container" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+   
 
-    <h2>Administrar Productos Existentes</h2>
-    <?php
-    include '/php/db.php';
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    $sql = "SELECT * FROM productos";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        echo '<table>';
-        echo '<tr><th>ID</th><th>Título</th><th>Imagen</th><th>Tallas</th><th>Colores</th><th>Precio</th><th>Categoría</th><th>Acciones</th></tr>';
-        while($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $row["id"] . '</td>';
-            echo '<td>' . $row["titulo"] . '</td>';
-            echo '<td><img src="' . $row["imagen"] . '" alt="' . $row["titulo"] . '" width="50"></td>';
-            echo '<td>' . $row["tallas"] . '</td>';
-            echo '<td>' . $row["colores"] . '</td>';
-            echo '<td>' . $row["precio"] . '</td>';
-            echo '<td>' . $row["categoria_id"] . '</td>';
-            echo '<td>
-                    <form action="/php/actualizar_producto.php" method="POST" style="display:inline;">
-                        <input type="hidden" name="id" value="' . $row["id"] . '">
-                        <input type="submit" value="Editar">
-                    </form>
-                    <form action="/php/eliminar_producto.php" method="POST" style="display:inline;">
-                        <input type="hidden" name="id" value="' . $row["id"] . '">
-                        <input type="submit" value="Eliminar">
-                    </form>
-                  </td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    } else {
-        echo "No hay productos disponibles.";
-    }
-
-    $conn->close();
-    ?>
+    <script>
+        $(document).ready(function () {
+            // Realiza una solicitud AJAX al archivo PHP
+            $.ajax({
+                url: '/php/admin_products.php',
+                type: 'GET',
+                success: function (response) {
+                    // Inserta la respuesta en el contenedor de productos
+                    $('#productos-container').html(response);
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
