@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .table-hover tbody tr:hover {
+  background-color: #ffd700;
+}
+</style>
 <?php
 $servername = "localhost";
 $username = "root";
@@ -11,8 +16,8 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Consulta SQL sin término de búsqueda
-$sql = "SELECT * FROM productos";
+// Consulta SQL para obtener los productos con el nombre de la categoría
+$sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";
 
 $result = $conn->query($sql);
 
@@ -20,7 +25,7 @@ if ($result) {
     if ($result->num_rows > 0) {
         echo '
         <input type="text" class="form-control" placeholder="Buscar artículos..." aria-label="Search" id="buscador" onkeyup="buscar()">
-        <table class="table text-light" id="tabla-productos">
+        <table class="table text-light table-hover" id="tabla-productos">
          <thead>
             <tr>
                 <th scope="col">id</th>
@@ -29,18 +34,24 @@ if ($result) {
                 <th scope="col">Precio</th>
                 <th scope="col">Talla</th>
                 <th scope="col">Color</th>
+                <th scope="col">Categoría</th>
                 <th scope="col"></th>
             </tr>
          </thead>
          <tbody>';
         while ($row = $result->fetch_assoc()) {
+            // Determinar la ruta de la imagen según la categoría
+            $categoria = strtolower($row["categoria_nombre"]);
+            $rutaImagen = "../imagenes/" . strtoupper($categoria) . "/" . $row["imagen"];
+
             echo '<tr>
             <th scope="row">' . $row["id"] . '</th>
-            <td><img src="../imagenes/CAMISETAS/' . $row["imagen"] . '" alt="' . $row["imagen"] . '" style="max-width:50px;"></td>
+            <td><img src="' . $rutaImagen . '" alt="' . $row["nombre"] . '" style="max-width:50px;"></td>
             <td class="article-name">' . $row["nombre"] . '</td>
             <td>' . $row["precio"] . '</td>
             <td>' . $row["talla"] . '</td>
             <td>' . $row["color"] . '</td>
+            <td>' . $row["categoria_nombre"] . '</td>
             <td>
             <a href="/php/actualizar_producto.php?id=' . $row["id"] . '" class="btn btn-warning mr-2"><i class="fas fa-pencil-alt"></i></a>
             <button class="btn btn-danger" onclick="abrirModal(' . $row["id"] . ')"><i class="fas fa-trash-alt"></i></button>
@@ -57,7 +68,6 @@ if ($result) {
     echo "<p>Error en la consulta: " . $conn->error . "</p>";
 }
 
-// Cerrar la conexión a la base de datos
 $conn->close();
 ?>
 
@@ -82,6 +92,7 @@ $conn->close();
     </div>
 </div>
 
+<!-- Scripts -->
 <script>
     function buscar() {
         // Obtener el valor del campo de búsqueda
@@ -90,7 +101,6 @@ $conn->close();
         var tabla = document.getElementById("tabla-productos");
         var filas = tabla.getElementsByTagName("tr");
 
-        // Iterar sobre todas las filas de la tabla y ocultar aquellas que no coincidan con el filtro
         for (var i = 0; i < filas.length; i++) {
             var nombreProducto = filas[i].getElementsByClassName("article-name")[0];
             if (nombreProducto) {
@@ -115,8 +125,6 @@ $conn->close();
         window.location.href = "/php/eliminar_producto.php?id=" + productoId;
     }
 </script>
-
-<!-- Incluye los archivos JS y CSS de Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

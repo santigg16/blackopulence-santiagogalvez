@@ -1,26 +1,39 @@
 <?php
-include 'db.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "blackopulence";
 
-if(isset($_GET['categoria'])) {
-    $categoria = $_GET['categoria'];
-} else {
-    $categoria = 'camisetas';
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM PRODUCTOS WHERE categoria_id = (
-            SELECT id FROM CATEGORIAS WHERE nombre = '$categoria'
-        )";
-$result = $conn->query($sql);
+// Verificar si se ha pasado una categoría por GET, si no, por defecto es 'camisetas'
+$categoria = isset($_GET['categoria']) ? $_GET['categoria'] : 'camisetas';
+
+// Preparar y ejecutar la consulta SQL para obtener productos de la categoría especificada
+$sql = "SELECT p.nombre, p.imagen, p.precio FROM PRODUCTOS p 
+        JOIN CATEGORIAS c ON p.categoria_id = c.id 
+        WHERE c.nombre = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $categoria);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $products = array();
-
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $products[] = $row;
     }
-} else {
-    echo "0 resultados";
 }
 
-$conn->close();
+$stmt->close();
+
+// Devolver los datos en formato JSON
+header('Content-Type: application/json');
+echo json_encode($products);
 ?>

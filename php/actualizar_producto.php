@@ -22,9 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) && is_numeric($_
     $talla = $_POST['tallas'];
     $color = $_POST['colores'];
     $imagen = $_POST['imagen'];
+    $categoria = $_POST['categoria'];
 
     // Preparar la consulta para actualizar el producto
-    $sql = "UPDATE productos SET nombre='$nombre', precio='$precio', talla='$talla', color='$color', imagen='$imagen' WHERE id=$producto_id";
+    $sql = "UPDATE productos SET nombre='$nombre', precio='$precio', talla='$talla', color='$color', imagen='$imagen', categoria_id='$categoria' WHERE id=$producto_id";
 
     // Ejecutar la consulta
     if ($conn->query($sql) === TRUE) {
@@ -50,8 +51,28 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <link rel="stylesheet" href="../css/styles.css">
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6 bg-light">
-                    <img src="../imagenes/CAMISETAS/CATALOGO-CAMISETAS/<?php echo $producto['imagen']; ?>" alt="Imagen del Producto" class="img-fluid">
+                <div class="col-md-6 ">
+                    <?php
+                    // Construir la ruta de la imagen según la categoría
+                    $categoria_imagen = "";
+                    switch ($producto['categoria_id']) {
+                        case 1:
+                            $categoria_imagen = "CAMISETAS";
+                            break;
+                        case 2:
+                            $categoria_imagen = "GORRAS";
+                            break;
+                        case 3:
+                            $categoria_imagen = "SUDADERAS";
+                            break;
+                        case 4:
+                            $categoria_imagen = "ZAPATILLAS";
+                            break;
+                        default:
+                            $categoria_imagen = "DEFAULT";
+                    }
+                    ?>
+                    <img src="../imagenes/<?php echo $categoria_imagen; ?>/<?php echo $producto['imagen']; ?>" alt="Imagen del Producto" class="img-fluid">
                 </div>
                 <div class="col-md-6">
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -85,10 +106,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <div class="form-group">
                             <label for="categoria">Categoría:</label>
                             <select class="form-control" id="categoria" name="categoria" required>
-                                <option value="1" <?php if (isset($producto['categoria']) && $producto['categoria'] == "1") echo "selected"; ?>>Camiseta</option>
-                                <option value="2" <?php if (isset($producto['categoria']) && $producto['categoria'] == "2") echo "selected"; ?>>Gorras</option>
-                                <option value="3" <?php if (isset($producto['categoria']) && $producto['categoria'] == "3") echo "selected"; ?>>Zapatillas</option>
+                                <option value="1" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "1") echo "selected"; ?>>Camiseta</option>
+                                <option value="2" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "2") echo "selected"; ?>>Gorras</option>
+                                <option value="3" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "3") echo "selected"; ?>>Sudaderas</option>
+                                <option value="4" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "4") echo "selected"; ?>>Zapatillas</option>
                             </select>
+
                         </div>
                         <button type="submit" class="btn btn-warning">Actualizar</button>
                     </form>
