@@ -16,20 +16,24 @@ if ($conn->connect_error) {
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $producto_id = $_GET['id'];
     
-    // Consulta SQL para eliminar el producto
-    $sql = "DELETE FROM productos WHERE id = $producto_id";
+    // Preparar la consulta SQL
+    $sql = "DELETE FROM productos WHERE id = ?";
 
-    if ($conn->query($sql) === TRUE) {
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $producto_id);
+
+    if ($stmt->execute() === TRUE) {
         echo "Producto eliminado correctamente.";
+        header("Location: /html/admin.html");
+        exit();
     } else {
-        echo "Error al eliminar el producto: " . $conn->error;
+        echo "Error al eliminar el producto: " . $stmt->error;
     }
+
+    $stmt->close();
 } else {
     echo "ID de producto no válido.";
 }
 
-// Cerrar la conexión a la base de datos
 $conn->close();
-header("Location: /html/admin.html");
-exit();
 ?>

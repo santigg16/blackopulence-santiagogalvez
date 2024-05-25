@@ -16,8 +16,8 @@ if ($conn->connect_error) {
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : 'camisetas';
 
 // Preparar y ejecutar la consulta SQL para obtener productos de la categoría especificada
-$sql = "SELECT p.nombre, p.imagen, p.precio FROM PRODUCTOS p 
-        JOIN CATEGORIAS c ON p.categoria_id = c.id 
+$sql = "SELECT p.nombre, p.imagen, p.precio FROM productos p 
+        JOIN categorias c ON p.categoria_id = c.id 
         WHERE c.nombre = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $categoria);
@@ -26,12 +26,17 @@ $result = $stmt->get_result();
 
 $products = array();
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $products[] = $row;
+    while ($row = $result->fetch_assoc()) {
+        $products[] = array(
+            'nombre' => htmlspecialchars($row['nombre']),
+            'imagen' => htmlspecialchars($row['imagen']),
+            'precio' => htmlspecialchars($row['precio'])
+        );
     }
 }
 
 $stmt->close();
+$conn->close();
 
 // Devolver los datos en formato JSON
 header('Content-Type: application/json');
