@@ -25,33 +25,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) && is_numeric($_
     $categoria = $_POST['categoria'];
 
     // Preparar la consulta para actualizar el producto
-    $sql = "UPDATE productos SET nombre=?, precio=?, talla=?, color=?, imagen=?, categoria_id=? WHERE id=?";
-
-    // Usar prepared statements para evitar inyección SQL
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sdsssii", $nombre, $precio, $talla, $color, $imagen, $categoria, $producto_id);
+    $sql = "UPDATE productos SET nombre='$nombre', precio='$precio', talla='$talla', color='$color', imagen='$imagen', categoria_id='$categoria' WHERE id=$producto_id";
 
     // Ejecutar la consulta
-    if ($stmt->execute() === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         echo "Producto actualizado correctamente.";
         header("Location: /html/admin.html");
         exit();
     } else {
         echo "Error al actualizar el producto: " . $conn->error;
     }
-
-    $stmt->close();
 }
 
 // Mostrar el formulario de actualización con los datos del producto
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $producto_id = $_GET['id'];
 
-    $sql = "SELECT * FROM productos WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $producto_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT * FROM productos WHERE id = $producto_id";
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $producto = $result->fetch_assoc();
@@ -60,7 +51,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <link rel="stylesheet" href="../css/styles.css">
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 ">
                     <?php
                     // Construir la ruta de la imagen según la categoría
                     $categoria_imagen = "";
@@ -88,38 +79,39 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <input type="hidden" name="id" value="<?php echo $producto['id']; ?>">
                         <div class="form-group">
                             <label for="titulo">Título:</label>
-                            <input class="form-control" type="text" name="titulo" value="<?php echo htmlspecialchars($producto['nombre']); ?>" required>
+                            <input class="form-control" type="text" name="titulo" value="<?php echo $producto['nombre']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="imagen">URL Imagen:</label>
-                            <input class="form-control" type="text" name="imagen" value="<?php echo htmlspecialchars($producto['imagen']); ?>" required>
+                            <input class="form-control" type="text" name="imagen" value="<?php echo $producto['imagen']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="tallas">Talla:</label>
                             <select class="form-control" id="tallas" name="tallas" required>
-                                <option value="S" <?php if ($producto['talla'] == "S") echo "selected"; ?>>S</option>
-                                <option value="M" <?php if ($producto['talla'] == "M") echo "selected"; ?>>M</option>
-                                <option value="L" <?php if ($producto['talla'] == "L") echo "selected"; ?>>L</option>
-                                <option value="XL" <?php if ($producto['talla'] == "XL") echo "selected"; ?>>XL</option>
-                                <option value="EG" <?php if ($producto['talla'] == "EG") echo "selected"; ?>>EG</option>
+                                <option value="S" <?php if (isset($producto['talla']) && $producto['talla'] == "S") echo "selected"; ?>>S</option>
+                                <option value="M" <?php if (isset($producto['talla']) && $producto['talla'] == "M") echo "selected"; ?>>M</option>
+                                <option value="L" <?php if (isset($producto['talla']) && $producto['talla'] == "L") echo "selected"; ?>>L</option>
+                                <option value="XL" <?php if (isset($producto['talla']) && $producto['talla'] == "XL") echo "selected"; ?>>XL</option>
+                                <option value="EG" <?php if (isset($producto['talla']) && $producto['talla'] == "EG") echo "selected"; ?>>EG</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="colores">Color:</label>
-                            <input class="form-control" type="text" name="colores" value="<?php echo htmlspecialchars($producto['color']); ?>" required>
+                            <input class="form-control" type="text" name="colores" value="<?php echo $producto['color']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="precio">Precio:</label>
-                            <input class="form-control" type="number" name="precio" value="<?php echo htmlspecialchars($producto['precio']); ?>" required>
+                            <input class="form-control" type="number" name="precio" value="<?php echo $producto['precio']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="categoria">Categoría:</label>
                             <select class="form-control" id="categoria" name="categoria" required>
-                                <option value="1" <?php if ($producto['categoria_id'] == "1") echo "selected"; ?>>Camiseta</option>
-                                <option value="2" <?php if ($producto['categoria_id'] == "2") echo "selected"; ?>>Gorras</option>
-                                <option value="3" <?php if ($producto['categoria_id'] == "3") echo "selected"; ?>>Sudaderas</option>
-                                <option value="4" <?php if ($producto['categoria_id'] == "4") echo "selected"; ?>>Zapatillas</option>
+                                <option value="1" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "1") echo "selected"; ?>>Camiseta</option>
+                                <option value="2" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "2") echo "selected"; ?>>Gorras</option>
+                                <option value="3" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "3") echo "selected"; ?>>Sudaderas</option>
+                                <option value="4" <?php if (isset($producto['categoria_id']) && $producto['categoria_id'] == "4") echo "selected"; ?>>Zapatillas</option>
                             </select>
+
                         </div>
                         <button type="submit" class="btn btn-warning">Actualizar</button>
                     </form>
@@ -130,8 +122,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     } else {
         echo "No se encontró el producto.";
     }
-
-    $stmt->close();
 } else {
     echo "ID de producto no válido.";
 }

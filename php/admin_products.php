@@ -1,19 +1,24 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .table-hover tbody tr:hover {
+  background-color: #ffd700;
+}
+</style>
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "blackopulence";
 
-// Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
 // Consulta SQL para obtener los productos con el nombre de la categoría
 $sql = "SELECT p.*, c.nombre AS categoria_nombre FROM productos p JOIN categorias c ON p.categoria_id = c.id";
+
 $result = $conn->query($sql);
 
 if ($result) {
@@ -40,16 +45,16 @@ if ($result) {
             $rutaImagen = "../imagenes/" . strtoupper($categoria) . "/" . $row["imagen"];
 
             echo '<tr>
-            <th scope="row">' . htmlspecialchars($row["id"]) . '</th>
-            <td><img src="' . htmlspecialchars($rutaImagen) . '" alt="' . htmlspecialchars($row["nombre"]) . '" style="max-width:50px;"></td>
-            <td class="article-name">' . htmlspecialchars($row["nombre"]) . '</td>
-            <td>' . htmlspecialchars($row["precio"]) . '</td>
-            <td>' . htmlspecialchars($row["talla"]) . '</td>
-            <td>' . htmlspecialchars($row["color"]) . '</td>
-            <td>' . htmlspecialchars($row["categoria_nombre"]) . '</td>
+            <th scope="row">' . $row["id"] . '</th>
+            <td><img src="' . $rutaImagen . '" alt="' . $row["nombre"] . '" style="max-width:50px;"></td>
+            <td class="article-name">' . $row["nombre"] . '</td>
+            <td>' . $row["precio"] . '</td>
+            <td>' . $row["talla"] . '</td>
+            <td>' . $row["color"] . '</td>
+            <td>' . $row["categoria_nombre"] . '</td>
             <td>
-            <a href="/php/actualizar_producto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn btn-warning mr-2"><i class="fas fa-pencil-alt"></i></a>
-            <button class="btn btn-danger" onclick="abrirModal(' . htmlspecialchars($row["id"]) . ')"><i class="fas fa-trash-alt"></i></button>
+            <a href="/php/actualizar_producto.php?id=' . $row["id"] . '" class="btn btn-warning mr-2"><i class="fas fa-pencil-alt"></i></a>
+            <button class="btn btn-danger" onclick="abrirModal(' . $row["id"] . ')"><i class="fas fa-trash-alt"></i></button>
             </td>
             </tr>';
         }
@@ -60,7 +65,7 @@ if ($result) {
         echo "<p>No se encontraron resultados.</p>";
     }
 } else {
-    echo "<p>Error en la consulta: " . htmlspecialchars($conn->error) . "</p>";
+    echo "<p>Error en la consulta: " . $conn->error . "</p>";
 }
 
 $conn->close();
@@ -123,10 +128,3 @@ $conn->close();
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<style>
-    .table-hover tbody tr:hover {
-        background-color: #ffd700;
-    }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
